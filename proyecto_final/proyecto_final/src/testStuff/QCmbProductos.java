@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class QCmbProductos {
 
     public static void main(String[] args) throws IOException {
-//      Lee cache para alamecenar el usuario activo 
+//      Lee cache para alamecenar el usuario activo  
         CacheReader lectorCache = new CacheReader();
         String stmA;
 
