@@ -22,7 +22,7 @@ public class QProductos extends Thread {
         HashMap<Integer, String> qResults = new HashMap<>();
 //          Conexion base de datos puerto 3606
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3606/openbill?" + "user=root&password=");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/openbill?" + "user=root&password=");
 //          Definicion declaracion y resultado
             Statement stmt = null;
             ResultSet rs = null;
