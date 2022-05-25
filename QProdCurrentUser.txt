@@ -1,0 +1,1 @@
+select * from `usuario`, `proveedores`, `productos`, `proveedor_producto`, `usuario_proveedor`  where `IDU` = 1 and `IDUPUsuario` = `IDU` and `IDPV` = `IDUPProveedor` and `IDPV` = `IDPPProveedor` and `IDPR` = `IDPPProducto`;
