@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class QCmbProductos {
    static int ID;
-  public static void main(String[] args) throws IOException {
+  //public static void main(String[] args) throws IOException {
 
 //      Lee cache para alamecenar el usuario activo  
 
@@ -22,6 +22,7 @@ public class QCmbProductos {
 
         int ID =  lectorCache.leerCache();
 */
+/*
         ID = 1;
         String stmA;
         stmA = "select `PRNombre`, `IDPR` from `usuario`, `proveedores`, `productos`, `proveedor_producto`, `usuario_proveedor`  where `IDU` = " + ID + " and `IDUPUsuario` = `IDU` and `IDPV` = `IDUPProveedor` and `IDPV` = `IDPPProveedor` and `IDPR` = `IDPPProducto`;";
@@ -76,5 +77,5 @@ public class QCmbProductos {
 //        System.out.println( nuevo.run("select `IDCL` from `clientes` ORDER BY `IDCL` DESC LIMIT 1;"));
         
            
-   }
+ //  }
 }
