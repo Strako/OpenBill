@@ -41,7 +41,7 @@ public class CLIENTES extends JFrame {
      * Create the frame.
      */
     public CLIENTES() throws IOException {
-        setTitle("Clientes");
+        setTitle("Clients");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
