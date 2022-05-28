@@ -1,4 +1,4 @@
-package testStuff;
+package Queries;
 
 /*package tesetproyectostuff;
 public class TesetProyectoStuff {

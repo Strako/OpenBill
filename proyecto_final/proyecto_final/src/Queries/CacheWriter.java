@@ -1,4 +1,4 @@
-package testStuff;
+package Queries;
 
 import java.io.*;
 import java.util.Base64;

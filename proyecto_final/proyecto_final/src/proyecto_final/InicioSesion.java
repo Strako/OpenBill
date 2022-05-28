@@ -1,5 +1,6 @@
 package proyecto_final;
 
+import Queries.CacheWriter;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
@@ -24,18 +25,22 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Label;
 import java.awt.BorderLayout;
+import Queries.QUsuario;
 
 public class InicioSesion extends JFrame implements ActionListener {
 	private JLabel etiqueta2;
-	
-	  JPanel panel;
+            String userText;
+            String pwdText;
+            String stm;
+//          String stm = "select `IDU` from `usuario` where `Usuario` =  'Zul' and `UClave` = '1234' ;";
+            JPanel panel;
 	    JLabel et1, et2;
 	    JTextField txt1, txt2;
 	    JButton btnIngresar, btnSalir;
 	    String usu, pass;
 	    JOptionPane mensaje;
-	    String userText;
-	    String pwdText;
+            QUsuario respuesta = new QUsuario();
+            CacheWriter cache = new CacheWriter();
 	    private JLabel lblNewLabel;
 	    private JLabel lblNewLabel_1;
 
@@ -112,11 +117,13 @@ public class InicioSesion extends JFrame implements ActionListener {
 
 	private void login(ActionEvent e){
 		if (e.getSource() == btnIngresar || e.getSource() == txt2 || e.getSource() == txt1) {
-			String userText;
-			String pwdText;
 			userText = txt1.getText();
 			pwdText = txt2.getText();
-			  if (userText.equalsIgnoreCase("Zul") && pwdText.equalsIgnoreCase("123")) {
+                        stm = "select `IDU` from `usuario` where `Usuario` = '"+ userText +"' and `UClave` = '"+ pwdText +"';";
+                        System.out.println(stm + userText + pwdText);
+                                              
+			  if (respuesta.QueryUsuario(stm) != 0 ) {
+                                cache.escribirCache(respuesta.QueryUsuario(stm));
 				JOptionPane.showMessageDialog(this, "Login con exito");
 			   
 						VentanaPrivacidad uno = new VentanaPrivacidad();

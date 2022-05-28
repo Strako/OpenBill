@@ -1,5 +1,9 @@
 package proyecto_final;
 
+import Queries.QClientesCampos;
+import Queries.QProductosCampos;
+import Queries.QUsuario;
+import Queries.UpClientes;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -17,10 +21,13 @@ import javax.swing.border.EmptyBorder;
 public class PRODUCTOS  extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField TFproductosID;
+	private JTextField TFproductosPV;
 	private JTextField TFproductosNombre;
 	private JTextField TFproductosPrecio;
-	private JTextField TFproductosID_Productos;
+	private JTextField TFproductosPV_Productos;
+        String stm1, stm2, stm3;
+        String stmCampos, borrar, stmActualizar;
+        int ID;
 
 	/**
 	 * Launch the application.
@@ -46,29 +53,49 @@ public class PRODUCTOS  extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JButton BproductosGuardar_Datos = new JButton("Guardar Datos");
+
 		BproductosGuardar_Datos.setBackground(Color.WHITE);
 		BproductosGuardar_Datos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                            
+                stm1 = "INSERT INTO `productos` (`IDPR`, `PRNombre`, `PRPrecio`) VALUES (NULL, '" + TFproductosNombre.getText() + "', '" + TFproductosPrecio.getText() + "');";
+                System.out.println(stm1);
+                guardar.updateClientes(stm1);
+                
+                stm2 = "select `IDPR` from `productos` ORDER BY `IDPR` DESC LIMIT 1;";
+                System.out.println(stm2);
+                System.out.println(ultimoID.run(stm2));
+
+                
+                stm3 = "INSERT INTO `proveedor_producto` (`IDPPProveedor`, `IDPPProducto`) VALUES ('"+ Integer.valueOf(TFproductosPV.getText()) +"', '"+ ultimoID.run(stm2) +"');";
+                System.out.println(stm3);
+                System.out.println(ultimoID);
+                lblProductoCreado.setText("ID Creado: " + String.valueOf(ultimoID.run(stm2)));
+                guardar.run(stm3);
+
 				
 			}
 		});
 		BproductosGuardar_Datos.setBounds(34, 171, 126, 23);
 		panel.add(BproductosGuardar_Datos);
 		
-		JButton BproductosActualizar_Datos = new JButton("Actualizar Datos");
+
 		BproductosActualizar_Datos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                            
+                stmActualizar = "UPDATE `productos` SET `PRNombre` = '"+ TFproductosNombre.getText() +"', `PRPrecio` = '"+ TFproductosPrecio.getText() +"' WHERE `productos`.`IDPR` = "+ TFproductosPV_Productos.getText() +";";
+                actualizar.run(stmActualizar);
+                            
 			}
 		});
 		BproductosActualizar_Datos.setBackground(Color.WHITE);
 		BproductosActualizar_Datos.setBounds(34, 205, 126, 23);
 		panel.add(BproductosActualizar_Datos);
 		
-		TFproductosID = new JTextField();
-		TFproductosID.setBounds(78, 47, 106, 20);
-		panel.add(TFproductosID);
-		TFproductosID.setColumns(10);
+		TFproductosPV = new JTextField();
+		TFproductosPV.setBounds(78, 47, 106, 20);
+		panel.add(TFproductosPV);
+		TFproductosPV.setColumns(10);
 		
 		TFproductosNombre = new JTextField();
 		TFproductosNombre.setBounds(78, 78, 106, 20);
@@ -80,45 +107,47 @@ public class PRODUCTOS  extends JFrame {
 		panel.add(TFproductosPrecio);
 		TFproductosPrecio.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("ID:");
-		lblNewLabel.setBounds(10, 50, 46, 14);
-		panel.add(lblNewLabel);
+
+                lblProductoCreado.setBounds(80, 19, 115, 14);
+		panel.add(lblProductoCreado);
+                
+		lblProductoPV.setBounds(10, 50, 46, 14);
+		panel.add(lblProductoPV);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre:");
-		lblNewLabel_1.setBounds(10, 81, 46, 14);
-		panel.add(lblNewLabel_1);
+
+		lblProductoNombre.setBounds(10, 81, 46, 14);
+		panel.add(lblProductoNombre);
 		
-		JLabel lblNewLabel_2 = new JLabel("Precio:");
-		lblNewLabel_2.setBounds(10, 112, 46, 14);
-		panel.add(lblNewLabel_2);
+
+		lblProductoPrecio.setBounds(10, 112, 46, 14);
+		panel.add(lblProductoPrecio);
+				
+
+		lblProductoID.setBounds(231, 42, 82, 14);
+		contentPane.add(lblProductoID);
 		
-		JLabel lblNewLabel_4 = new JLabel("Datos de Producto");
-		lblNewLabel_4.setBounds(54, 11, 136, 14);
-		panel.add(lblNewLabel_4);
+		TFproductosPV_Productos = new JTextField();
+		TFproductosPV_Productos.setBounds(323, 39, 86, 20);
+		contentPane.add(TFproductosPV_Productos);
+		TFproductosPV_Productos.setColumns(10);
 		
-		JLabel lblNewLabel_5 = new JLabel("ID Producto");
-		lblNewLabel_5.setBounds(231, 42, 82, 14);
-		contentPane.add(lblNewLabel_5);
+
+		lblProductoMod.setBounds(278, 11, 94, 14);
+		contentPane.add(lblProductoMod);
 		
-		TFproductosID_Productos = new JTextField();
-		TFproductosID_Productos.setBounds(323, 39, 86, 20);
-		contentPane.add(TFproductosID_Productos);
-		TFproductosID_Productos.setColumns(10);
-		
-		JLabel lblNewLabel_6 = new JLabel("Modificar Datos");
-		lblNewLabel_6.setBounds(278, 11, 94, 14);
-		contentPane.add(lblNewLabel_6);
-		
-		JButton BproductosBORRAR_DATOS = new JButton("BORRAR DATOS");
+
 		BproductosBORRAR_DATOS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                            
+                        borrar = "DELETE FROM `productos` WHERE `productos`.`IDPR` = "+ TFproductosPV_Productos.getText() +";";
+                        eliminar.updateClientes(borrar);
+                            
 			}
 		});
 		BproductosBORRAR_DATOS.setBackground(Color.GRAY);
 		BproductosBORRAR_DATOS.setBounds(245, 117, 179, 81);
 		contentPane.add(BproductosBORRAR_DATOS);
 		
-		JButton btnNewButton_3 = new JButton("REGRESAR");
 		btnNewButton_3.setBackground(Color.BLACK);
 		btnNewButton_3.setForeground(Color.WHITE);
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -135,13 +164,35 @@ public class PRODUCTOS  extends JFrame {
 		btnNewButton_3.setBounds(335, 227, 89, 23);
 		contentPane.add(btnNewButton_3);
 		
-		JButton BproductosBuscar = new JButton("Buscar");
+
 		BproductosBuscar.setBackground(Color.GRAY);
 		BproductosBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                                                                                  
+                stmCampos = "select * from `productos` where `IDPR` = "+ TFproductosPV_Productos.getText() +";";   
+                TFproductosNombre.setText(String.valueOf(buscarProducto.run(stmCampos).get(1)));     
+                TFproductosPrecio.setText(String.valueOf(buscarProducto.run(stmCampos).get(2)));    
+                
 			}
 		});
 		BproductosBuscar.setBounds(283, 67, 89, 23);
 		contentPane.add(BproductosBuscar);
 	}
+		JLabel lblProductoCreado = new JLabel("ID:");    
+                JLabel lblProductoPV = new JLabel("Proveedor:");    
+		JLabel lblProductoNombre = new JLabel("Nombre:");
+		JLabel lblProductoPrecio = new JLabel("Precio:");
+		JLabel lblProductoID = new JLabel("ID Producto");
+                JLabel lblProductoMod = new JLabel("Modificar Datos");
+		JButton BproductosBORRAR_DATOS = new JButton("BORRAR DATOS");
+		JButton btnNewButton_3 = new JButton("REGRESAR");
+		JButton BproductosBuscar = new JButton("Buscar");         
+		JButton BproductosActualizar_Datos = new JButton("Actualizar Datos");                
+		JButton BproductosGuardar_Datos = new JButton("Guardar Datos");           
+                UpClientes guardar = new UpClientes();
+                QUsuario ultimoID = new QUsuario();
+                QProductosCampos buscarProducto = new QProductosCampos();
+                UpClientes eliminar = new UpClientes();
+                UpClientes actualizar = new UpClientes();
+
 }

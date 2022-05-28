@@ -1,4 +1,4 @@
-package testStuff;
+package Queries;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
-public class QProductos extends Thread {
-
-    public HashMap QueryProducto(String stmArg) {
+public class QUsuario extends Thread {
+    int resultado;
+    public int QueryUsuario(String stmArg) {
         try {
             // Se especifica el driver a usar
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -20,9 +20,9 @@ public class QProductos extends Thread {
         Connection conn = null;
         String Query = null;
         HashMap<Integer, String> qResults = new HashMap<>();
-//          Conexion base de datos puerto 3606
+//          Conexion base de datos puerto 3306
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3606/openbill?" + "user=root&password=");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/openbill?" + "user=root&password=");
 //          Definicion declaracion y resultado
             Statement stmt = null;
             ResultSet rs = null;
@@ -35,7 +35,7 @@ public class QProductos extends Thread {
                 while (rs.next() != false) {
                     aux++;
 //                  System.out.print(rs.getRow() + "---");
-                    qResults.put(aux, rs.getInt(2) + "-" + rs.getString(1));
+                    qResults.put(aux, String.valueOf(rs.getInt(1)));
 //                  System.out.println(qResults.get(aux));
                 }
 //              Reset valor auxiliar             
@@ -73,15 +73,23 @@ public class QProductos extends Thread {
             System.out.println(ex);
         }
 //      Retorna los resultados de la consulta almacenados en un HashMap 'qResults'
-        return qResults;
+//        System.out.println(qResults); 
+        try{
+        resultado = Integer.valueOf(qResults.get(1));
+        }catch(Exception e){
+            System.out.println(e);
+        }
+//        System.out.println(resultado);
+        return resultado;
+
     }
 
-    public HashMap run(String stmArg) {
+    public int run(String stmArg) {
         try {
-            return QueryProducto(stmArg);
+            return QueryUsuario(stmArg);
         } catch (Exception e) {
             System.out.println(e);
-            return null;
+            return 0;
         }
     }
 }

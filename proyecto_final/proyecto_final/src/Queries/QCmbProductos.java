@@ -1,4 +1,4 @@
-package testStuff;
+package Queries;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,17 +9,25 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 
 public class QCmbProductos {
+   static int ID;
+  public static void main(String[] args) throws IOException {
 
-    public static void main(String[] args) throws IOException {
 //      Lee cache para alamecenar el usuario activo  
+
+//      Lee cache para alamecenar el usuario activo 
+/*  
+
         CacheReader lectorCache = new CacheReader();
         String stmA;
 
         int ID =  lectorCache.leerCache();
-
+*/
+        ID = 1;
+        String stmA;
         stmA = "select `PRNombre`, `IDPR` from `usuario`, `proveedores`, `productos`, `proveedor_producto`, `usuario_proveedor`  where `IDU` = " + ID + " and `IDUPUsuario` = `IDU` and `IDPV` = `IDUPProveedor` and `IDPV` = `IDPPProveedor` and `IDPR` = `IDPPProducto`;";
         comboBox comboVentana = new comboBox(stmA);
         comboVentana.setVisible(true);
+        
 //      Escribe el usuario activo en cache para posterior uso
         
 /*
@@ -62,6 +70,11 @@ public class QCmbProductos {
  // END DEPRECATED ----------------------------------------------
          */
 
+        
+        
+
+//        System.out.println( nuevo.run("select `IDCL` from `clientes` ORDER BY `IDCL` DESC LIMIT 1;"));
+        
            
-    }
+   }
 }
