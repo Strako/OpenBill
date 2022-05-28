@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -19,12 +20,14 @@ import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JScrollPane;
 
 public class FACTURACION extends JFrame {
 
     private JPanel contentPane;
     private JTextField TFcantidad_Productos;
     private JTable table;
+ 
 
     public FACTURACION() throws IOException {
         setTitle("FACTURACION");
@@ -87,11 +90,43 @@ public class FACTURACION extends JFrame {
 
         JPanel panel_2 = new JPanel();
         panel_2.setBackground(Color.CYAN);
-        panel_2.setBounds(241, 11, 297, 362);
+        panel_2.setBounds(241, 11, 297, 312);
         contentPane.add(panel_2);
-
+        panel_2.setLayout(null);
+        
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(10, 11, 277, 290);
+        panel_2.add(scrollPane);
+        
         table = new JTable();
-        panel_2.add(table);
+        table.setModel(new DefaultTableModel(
+        	new Object[][] {
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        		{null, null, null},
+        	},
+        	new String[] {
+        		"Nombre", "Cantidad ", "Precio unitario"
+        	}
+        ));
+        table.getColumnModel().getColumn(2).setPreferredWidth(113);
+        scrollPane.setViewportView(table);
+
+       
 
         JButton BT_IMPRIMIR_FACTURA = new JButton("IMPRIMIR FACTURA");
         BT_IMPRIMIR_FACTURA.addActionListener(new ActionListener() {
@@ -164,6 +199,27 @@ public class FACTURACION extends JFrame {
 		});
 		BT_Borrar.setBounds(241, 384, 164, 23);
 		contentPane.add(BT_Borrar);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(241, 321, 297, 54);
+		contentPane.add(panel_3);
+		panel_3.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("IVA:");
+		lblNewLabel_1.setBounds(88, 11, 46, 14);
+		panel_3.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_3 = new JLabel("TOTAL:");
+		lblNewLabel_3.setBounds(88, 29, 46, 14);
+		panel_3.add(lblNewLabel_3);
+		
+		JLabel lbIVA = new JLabel(".............................");
+		lbIVA.setBounds(179, 11, 108, 14);
+		panel_3.add(lbIVA);
+		
+		JLabel lbTOTAL = new JLabel(".............................");
+		lbTOTAL.setBounds(179, 29, 108, 14);
+		panel_3.add(lbTOTAL);
 		
 		
 		
