@@ -186,7 +186,7 @@ public class FACTURACION extends JFrame {
                 System.out.println(productoPrecio);
                 
                 total = total + (productoPrecio * productoCantidad);
-                iva = (float) (iva + (total * 0.16));
+                iva = (float) (iva + ((productoPrecio * productoCantidad) * 0.16));
                 System.out.println(total + "  " + iva);
                 
                 model.addRow(new Object[]{productoNombre, productoCantidad, productoPrecio});
@@ -213,7 +213,19 @@ public class FACTURACION extends JFrame {
         BT_Borrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
+                
+                dIVA = (float) ((float) model.getValueAt(table.getSelectedRow(), 2) * 0.16) * (int) model.getValueAt(table.getSelectedRow(), 1);
+                System.out.println(dIVA);
+                
+                dTotal = (float) model.getValueAt(table.getSelectedRow(), 2) * (int) model.getValueAt(table.getSelectedRow(), 1);
+                System.out.println(dTotal);
                 model.removeRow(table.getSelectedRow());
+                
+                dIVA = Float.valueOf(lblRIVA.getText()) - dIVA;
+                dTotal = Float.valueOf(lblRTotal.getText()) - dTotal;
+                
+                lblRIVA.setText(String.valueOf(dIVA));
+                lblRTotal.setText(String.valueOf(dTotal));
                 
             }
         });
@@ -257,6 +269,7 @@ public class FACTURACION extends JFrame {
     float  productoPrecio;
     float total = 0;
     float iva = 0;
+    float operacion, dIVA, dTotal;
     DefaultTableModel model;
 
 
