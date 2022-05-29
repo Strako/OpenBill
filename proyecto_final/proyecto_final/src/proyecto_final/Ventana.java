@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JMenuBar;
+import javax.swing.ImageIcon;
+import java.awt.FlowLayout;
 
 public class Ventana extends javax.swing.JFrame {
     public Ventana() {
@@ -30,6 +32,7 @@ public class Ventana extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        btnClientes.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Clients-icon.png")));
         
 
         btnClientes.setForeground(Color.WHITE);
@@ -47,6 +50,7 @@ public class Ventana extends javax.swing.JFrame {
 				
         	}
         });
+        btnProductos.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Productos.png")));
         
 
         btnProductos.addActionListener(new ActionListener() {
@@ -62,6 +66,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         btnProductos.setForeground(Color.WHITE);
         btnProductos.setBackground(Color.DARK_GRAY);
+        btnProveedores.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Proveedores.png")));
         
 
         btnProveedores.addActionListener(new ActionListener() {
@@ -77,6 +82,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         btnProveedores.setForeground(Color.WHITE);
         btnProveedores.setBackground(Color.DARK_GRAY);
+        btnFacturacion.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Facturacion.png")));
         
 
         btnFacturacion.addActionListener(new ActionListener() {
@@ -92,31 +98,6 @@ public class Ventana extends javax.swing.JFrame {
         });
         btnFacturacion.setForeground(Color.WHITE);
         btnFacturacion.setBackground(Color.DARK_GRAY);
-
-        javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
-        jPanelLayout.setHorizontalGroup(
-        	jPanelLayout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanelLayout.createSequentialGroup()
-        			.addGroup(jPanelLayout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(btnProveedores, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        				.addComponent(btnClientes, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
-        			.addGroup(jPanelLayout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(btnFacturacion, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-        				.addComponent(btnProductos, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
-        );
-        jPanelLayout.setVerticalGroup(
-        	jPanelLayout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanelLayout.createSequentialGroup()
-        			.addGroup(jPanelLayout.createParallelGroup(Alignment.LEADING, false)
-        				.addComponent(btnProductos, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        				.addComponent(btnClientes, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
-        			.addGap(18)
-        			.addGroup(jPanelLayout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(btnFacturacion, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-        				.addComponent(btnProveedores, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)))
-        );
-        jPanel.setLayout(jPanelLayout);
 
         jMenu1.setText("File");
         jMenuBar.add(jMenu1);
@@ -160,6 +141,11 @@ public class Ventana extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+        jPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        jPanel.add(btnProveedores);
+        jPanel.add(btnClientes);
+        jPanel.add(btnFacturacion);
+        jPanel.add(btnProductos);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
