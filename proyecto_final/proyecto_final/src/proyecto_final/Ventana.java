@@ -29,9 +29,12 @@ public class Ventana extends javax.swing.JFrame {
         jMenuBar.setBackground(new Color(0, 0, 0));
         jMenuBar.setForeground(Color.WHITE);
         jMenu1 = new javax.swing.JMenu();
+        jMenu1.setForeground(Color.WHITE);
         jMenu2 = new javax.swing.JMenu();
+        jMenu2.setForeground(Color.WHITE);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        btnClientes.setBounds(15, 281, 387, 265);
         btnClientes.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Clients-icon.png")));
         
 
@@ -50,6 +53,7 @@ public class Ventana extends javax.swing.JFrame {
 				
         	}
         });
+        btnProductos.setBounds(422, 281, 387, 265);
         btnProductos.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Productos.png")));
         
 
@@ -66,6 +70,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         btnProductos.setForeground(Color.WHITE);
         btnProductos.setBackground(Color.DARK_GRAY);
+        btnProveedores.setBounds(15, 5, 387, 265);
         btnProveedores.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Proveedores.png")));
         
 
@@ -82,6 +87,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         btnProveedores.setForeground(Color.WHITE);
         btnProveedores.setBackground(Color.DARK_GRAY);
+        btnFacturacion.setBounds(422, 5, 387, 265);
         btnFacturacion.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Facturacion.png")));
         
 
@@ -176,16 +182,16 @@ public class Ventana extends javax.swing.JFrame {
         setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jPanel, GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jPanel, GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
         );
-        jPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        getContentPane().setLayout(layout);
+        jPanel.setLayout(null);
         jPanel.add(btnProveedores);
         jPanel.add(btnClientes);
         jPanel.add(btnFacturacion);
