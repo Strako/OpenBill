@@ -31,10 +31,10 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         
-        JButton btnNewButton = new JButton("CLIENTES");
-        btnNewButton.setForeground(Color.WHITE);
-        btnNewButton.setBackground(Color.DARK_GRAY);
-        btnNewButton.addActionListener(new ActionListener() {
+
+        btnClientes.setForeground(Color.WHITE);
+        btnClientes.setBackground(Color.DARK_GRAY);
+        btnClientes.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
    
         		try {
@@ -48,8 +48,8 @@ public class Ventana extends javax.swing.JFrame {
         	}
         });
         
-        JButton btnNewButton_1 = new JButton("PRODUCTOS");
-        btnNewButton_1.addActionListener(new ActionListener() {
+
+        btnProductos.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		try {
         			PRODUCTOS frame = new PRODUCTOS();
@@ -60,11 +60,11 @@ public class Ventana extends javax.swing.JFrame {
 				}
         	}
         });
-        btnNewButton_1.setForeground(Color.WHITE);
-        btnNewButton_1.setBackground(Color.DARK_GRAY);
+        btnProductos.setForeground(Color.WHITE);
+        btnProductos.setBackground(Color.DARK_GRAY);
         
-        JButton btnNewButton_2 = new JButton("PROVEEDORES");
-        btnNewButton_2.addActionListener(new ActionListener() {
+
+        btnProveedores.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		try {
         			PROVEEDORES frame = new PROVEEDORES();
@@ -75,11 +75,11 @@ public class Ventana extends javax.swing.JFrame {
 				}
         	}
         });
-        btnNewButton_2.setForeground(Color.WHITE);
-        btnNewButton_2.setBackground(Color.DARK_GRAY);
+        btnProveedores.setForeground(Color.WHITE);
+        btnProveedores.setBackground(Color.DARK_GRAY);
         
-        JButton btnNewButton_3 = new JButton("FACTURACION");
-        btnNewButton_3.addActionListener(new ActionListener() {
+
+        btnFacturacion.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		try {
         			FACTURACION frame = new FACTURACION();
@@ -90,50 +90,50 @@ public class Ventana extends javax.swing.JFrame {
 				}
         	}
         });
-        btnNewButton_3.setForeground(Color.WHITE);
-        btnNewButton_3.setBackground(Color.DARK_GRAY);
+        btnFacturacion.setForeground(Color.WHITE);
+        btnFacturacion.setBackground(Color.DARK_GRAY);
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanelLayout.setHorizontalGroup(
         	jPanelLayout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanelLayout.createSequentialGroup()
         			.addGroup(jPanelLayout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        				.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(btnProveedores, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        				.addComponent(btnClientes, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))
         			.addPreferredGap(ComponentPlacement.UNRELATED)
         			.addGroup(jPanelLayout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-        				.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
+        				.addComponent(btnFacturacion, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+        				.addComponent(btnProductos, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
         );
         jPanelLayout.setVerticalGroup(
         	jPanelLayout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanelLayout.createSequentialGroup()
         			.addGroup(jPanelLayout.createParallelGroup(Alignment.LEADING, false)
-        				.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        				.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+        				.addComponent(btnProductos, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        				.addComponent(btnClientes, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
         			.addGap(18)
         			.addGroup(jPanelLayout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-        				.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)))
+        				.addComponent(btnFacturacion, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+        				.addComponent(btnProveedores, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)))
         );
         jPanel.setLayout(jPanelLayout);
 
         jMenu1.setText("File");
         jMenuBar.add(jMenu1);
         
-        mntmNewMenuItem = new JMenuItem("New menu item");
-        jMenu1.add(mntmNewMenuItem);
-        
         menuBar_1 = new JMenuBar();
         jMenu1.add(menuBar_1);
         
-        mntmNewMenuItem_5 = new JMenuItem("New menu item");
+        mntmNewMenuItem = new JMenuItem("Proveedores");
+        jMenu1.add(mntmNewMenuItem);
+        
+        mntmNewMenuItem_5 = new JMenuItem("Clientes");
         jMenu1.add(mntmNewMenuItem_5);
         
-        mntmNewMenuItem_4 = new JMenuItem("New menu item");
+        mntmNewMenuItem_4 = new JMenuItem("Productos");
         jMenu1.add(mntmNewMenuItem_4);
         
-        mntmNewMenuItem_1 = new JMenuItem("New menu item");
+        mntmNewMenuItem_1 = new JMenuItem("Facturacion");
         jMenu1.add(mntmNewMenuItem_1);
 
         jMenu2.setText("Edit");
@@ -175,4 +175,8 @@ public class Ventana extends javax.swing.JFrame {
     private JMenuBar menuBar_1;
     private JMenuItem mntmNewMenuItem_4;
     private JMenuItem mntmNewMenuItem_5;
+    JButton btnClientes = new JButton("CLIENTES");
+    JButton btnFacturacion = new JButton("FACTURACION");   
+    JButton btnProductos = new JButton("PRODUCTOS");
+    JButton btnProveedores = new JButton("PROVEEDORES");
 }
