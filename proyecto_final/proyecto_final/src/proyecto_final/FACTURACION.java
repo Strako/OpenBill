@@ -176,6 +176,14 @@ public class FACTURACION extends JFrame {
 
         BT_AGREGAR.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	
+            	if(TFcantidad_Productos.getText().equals("")){
+            		 JOptionPane.showConfirmDialog(null, "ERROR", "INGRESA UNA CANITDAD", JOptionPane.WARNING_MESSAGE);
+                     
+                }
+                else
+                {    
+	
                 productoNombre = String.valueOf(comboBox_Productos.getSelectedItem());
                 System.out.println(productoNombre);
                 
@@ -197,7 +205,7 @@ public class FACTURACION extends JFrame {
                 lblRIVA.setText(String.valueOf(iva));
                 
                 
-
+                }
             }
         }
         );
