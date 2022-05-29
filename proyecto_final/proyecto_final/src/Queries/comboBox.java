@@ -1,4 +1,4 @@
-package testStuff;
+package Queries;
 
 
 public class comboBox extends javax.swing.JFrame {

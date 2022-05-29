@@ -1,10 +1,15 @@
 package proyecto_final;
 
+import Queries.CacheReader;
+import Queries.QClientesCampos;
+import Queries.QUsuario;
+import Queries.UpClientes;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,11 +22,13 @@ import javax.swing.border.EmptyBorder;
 public class PROVEEDORES extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField TFproveedoresID;
 	private JTextField TFproveedoresNombre;
 	private JTextField TFproveedoresMail;
 	private JTextField TFproveedoresTel;
 	private JTextField TFproveedoresID_Proveedores;
+        String stm1, stm2, stm3;
+        String stmCampos, borrar, stmActualizar;
+        int ID;
 
 	/**
 	 * Launch the application.
@@ -31,7 +38,7 @@ public class PROVEEDORES extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PROVEEDORES() {
+	public PROVEEDORES() throws IOException {
 		setTitle("PROVEEDORES");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -46,29 +53,49 @@ public class PROVEEDORES extends JFrame {
 		panel.setBounds(10, 11, 211, 239);
 		contentPane.add(panel);
 		panel.setLayout(null);
+                
+                //      Lee cache para alamecenar el usuario activo 
+                CacheReader lectorCache = new CacheReader();
+                ID =  lectorCache.leerCache();
 		
-		JButton BproveedoresGuardar = new JButton("Guardar Datos");
+
 		BproveedoresGuardar.setBackground(Color.WHITE);
 		BproveedoresGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                stm1 = "INSERT INTO `proveedores` (`IDPV`, `PVNombre`, `PVMail`, `PVTelefono`) VALUES (NULL, '" + TFproveedoresNombre.getText() + "', '" + TFproveedoresMail.getText() + "', '" + TFproveedoresTel.getText() + "');";
+                System.out.println(stm1);
+                guardar.updateClientes(stm1);
+                
+                stm2 = "select `IDPV` from `proveedores` ORDER BY `IDPV` DESC LIMIT 1;";
+                System.out.println(stm2);
+                System.out.println(ultimoID.run(stm2));
+
+                
+                  stm3 = "INSERT INTO `usuario_proveedor` (`IDUPUsuario`, `IDUPProveedor`) VALUES ('"+ ID +"', '"+ ultimoID.run(stm2) +"');";
+                System.out.println(stm3);
+                System.out.println(ultimoID);
+                lblProveedorCreado.setText("ID Creado: " + String.valueOf(ultimoID.run(stm2)));
+                guardar.run(stm3);
+
 			}
 		});
 		BproveedoresGuardar.setBounds(34, 171, 138, 23);
 		panel.add(BproveedoresGuardar);
 		
-		JButton BproveedoresActualizar = new JButton("Actualizar Datos");
+
 		BproveedoresActualizar.setBackground(Color.WHITE);
 		BproveedoresActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                            
+                stmActualizar = "UPDATE `proveedores` SET `PVNombre` = '"+ TFproveedoresNombre.getText() +"', `PVMail` = '"+ TFproveedoresMail.getText() +"', `PVTelefono` = '"+ TFproveedoresTel.getText() +"' WHERE `proveedores`.`IDPV` = "+ TFproveedoresID_Proveedores.getText() +"";
+                actualizar.run(stmActualizar);
+                            
 			}
 		});
 		BproveedoresActualizar.setBounds(34, 205, 138, 23);
 		panel.add(BproveedoresActualizar);
 		
-		TFproveedoresID = new JTextField();
-		TFproveedoresID.setBounds(78, 47, 106, 20);
-		panel.add(TFproveedoresID);
-		TFproveedoresID.setColumns(10);
+
 		
 		TFproveedoresNombre = new JTextField();
 		TFproveedoresNombre.setBounds(78, 78, 106, 20);
@@ -85,49 +112,52 @@ public class PROVEEDORES extends JFrame {
 		panel.add(TFproveedoresTel);
 		TFproveedoresTel.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("ID");
-		lblNewLabel.setBounds(10, 50, 46, 14);
-		panel.add(lblNewLabel);
+
+		lblProveedorCreado.setBounds(80, 50, 115, 14);
+		panel.add(lblProveedorCreado);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre:");
-		lblNewLabel_1.setBounds(10, 81, 46, 14);
-		panel.add(lblNewLabel_1);
+
+		lblProveedorNombre.setBounds(10, 81, 46, 14);
+		panel.add(lblProveedorNombre);
 		
-		JLabel lblNewLabel_2 = new JLabel("Mail:");
-		lblNewLabel_2.setBounds(10, 112, 46, 14);
-		panel.add(lblNewLabel_2);
+
+		lblProveedorMail.setBounds(10, 112, 46, 14);
+		panel.add(lblProveedorMail);
 		
-		JLabel lblNewLabel_3 = new JLabel("Tel:");
-		lblNewLabel_3.setBounds(10, 143, 46, 14);
-		panel.add(lblNewLabel_3);
+
+		lblProveedorTel.setBounds(10, 143, 46, 14);
+		panel.add(lblProveedorTel);
 		
-		JLabel lblNewLabel_4 = new JLabel("DATOS DE PROVEEDOR");
-		lblNewLabel_4.setBounds(43, 11, 129, 14);
-		panel.add(lblNewLabel_4);
+
+		lblProveedorData.setBounds(43, 11, 129, 14);
+		panel.add(lblProveedorData);
 		
-		JLabel lblNewLabel_5 = new JLabel("ID Proveedor");
-		lblNewLabel_5.setBounds(240, 42, 72, 14);
-		contentPane.add(lblNewLabel_5);
+
+		lblProveedorID.setBounds(240, 42, 72, 14);
+		contentPane.add(lblProveedorID);
 		
 		TFproveedoresID_Proveedores = new JTextField();
 		TFproveedoresID_Proveedores.setBounds(318, 39, 86, 20);
 		contentPane.add(TFproveedoresID_Proveedores);
 		TFproveedoresID_Proveedores.setColumns(10);
 		
-		JLabel lblNewLabel_6 = new JLabel("Modificar Datos");
-		lblNewLabel_6.setBounds(278, 11, 99, 14);
-		contentPane.add(lblNewLabel_6);
+
+		lblProveedorMod.setBounds(278, 11, 99, 14);
+		contentPane.add(lblProveedorMod);
 		
-		JButton BproveedoresBorrar_Datos = new JButton("Borrar Datos");
+
 		BproveedoresBorrar_Datos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                        borrar = "DELETE FROM `proveedores` WHERE `proveedores`.`IDPV` = "+ TFproveedoresID_Proveedores.getText() +";";
+                        eliminar.updateClientes(borrar);
+                            
 			}
 		});
 		BproveedoresBorrar_Datos.setBackground(Color.GRAY);
 		BproveedoresBorrar_Datos.setBounds(240, 104, 179, 81);
 		contentPane.add(BproveedoresBorrar_Datos);
 		
-		JButton btnNewButton_3 = new JButton("REGRESAR");
+
 		btnNewButton_3.setForeground(Color.WHITE);
 		btnNewButton_3.setBackground(Color.BLACK);
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -144,14 +174,38 @@ public class PROVEEDORES extends JFrame {
 		btnNewButton_3.setBounds(335, 227, 89, 23);
 		contentPane.add(btnNewButton_3);
 		
-		JButton BproveedoresBuscar = new JButton("Buscar");
+
 		BproveedoresBuscar.setBackground(Color.GRAY);
 		BproveedoresBuscar.setForeground(Color.BLACK);
 		BproveedoresBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                                                      
+                stmCampos = "select * from `proveedores` where `IDPV` = "+ TFproveedoresID_Proveedores.getText() +";";
+                TFproveedoresNombre.setText(String.valueOf(buscarProveedor.run(stmCampos).get(1)));     
+                TFproveedoresMail.setText(String.valueOf(buscarProveedor.run(stmCampos).get(2)));     
+                TFproveedoresTel.setText(String.valueOf(buscarProveedor.run(stmCampos).get(3)));    
+                            
 			}
 		});
 		BproveedoresBuscar.setBounds(289, 67, 89, 23);
 		contentPane.add(BproveedoresBuscar);
 	}
+        
+        JLabel lblProveedorCreado = new JLabel("ID");
+	JLabel lblProveedorNombre = new JLabel("Nombre:"); 
+	JLabel lblProveedorMail = new JLabel("Mail:");        
+	JLabel lblProveedorTel = new JLabel("Tel:");
+    	JLabel lblProveedorData = new JLabel("DATOS DE PROVEEDOR");
+        JLabel lblProveedorID = new JLabel("ID Proveedor");
+        JLabel lblProveedorMod = new JLabel("Modificar Datos");
+	JButton BproveedoresBorrar_Datos = new JButton("Borrar Datos");       
+        JButton btnNewButton_3 = new JButton("REGRESAR");
+        JButton BproveedoresBuscar = new JButton("Buscar");
+        JButton BproveedoresActualizar = new JButton("Actualizar Datos");
+	JButton BproveedoresGuardar = new JButton("Guardar Datos");
+        UpClientes guardar = new UpClientes();
+        QUsuario ultimoID = new QUsuario();
+        QClientesCampos buscarProveedor = new QClientesCampos();
+        UpClientes eliminar = new UpClientes();
+        UpClientes actualizar = new UpClientes();
 }
