@@ -106,15 +106,59 @@ public class Ventana extends javax.swing.JFrame {
         jMenu1.add(menuBar_1);
         
         mntmNewMenuItem = new JMenuItem("Proveedores");
+        mntmNewMenuItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		try {
+        			PROVEEDORES frame = new PROVEEDORES();
+					frame.setVisible(true);
+					dispose();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+        	}
+        });
         jMenu1.add(mntmNewMenuItem);
         
         mntmNewMenuItem_5 = new JMenuItem("Clientes");
+        mntmNewMenuItem_5.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		try {
+        			CLIENTES frame = new CLIENTES();
+					frame.setVisible(true);
+					dispose();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+        	}
+        });
         jMenu1.add(mntmNewMenuItem_5);
         
         mntmNewMenuItem_4 = new JMenuItem("Productos");
+        mntmNewMenuItem_4.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		try {
+        			PRODUCTOS frame = new PRODUCTOS();
+					frame.setVisible(true);
+					dispose();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+        	}
+        });
         jMenu1.add(mntmNewMenuItem_4);
         
         mntmNewMenuItem_1 = new JMenuItem("Facturacion");
+        mntmNewMenuItem_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		try {
+        			FACTURACION frame = new FACTURACION();
+					frame.setVisible(true);
+					dispose();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+        	}
+        });
         jMenu1.add(mntmNewMenuItem_1);
 
         jMenu2.setText("Edit");
