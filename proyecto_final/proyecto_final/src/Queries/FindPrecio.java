@@ -9,7 +9,7 @@ package Queries;
  * @author Desk-strako
  */
 public class FindPrecio {
-    QUsuario qPrecio = new QUsuario();
+    QPRPrecio qPrecio = new QPRPrecio();
     
     public  float obetenerPrecio (int producto){
         float resultado;

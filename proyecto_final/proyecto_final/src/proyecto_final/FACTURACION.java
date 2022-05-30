@@ -230,7 +230,7 @@ public class FACTURACION extends JFrame {
                 model.removeRow(table.getSelectedRow());
                 
                 dIVA = Float.valueOf(lblRIVA.getText()) - dIVA;
-                if(dIVA < 0.01){
+                if(dIVA < 0.1){
                     dIVA = 0;
                     iva = dIVA;
                     
@@ -239,6 +239,13 @@ public class FACTURACION extends JFrame {
                 }
                 
                 dTotal = Float.valueOf(lblRTotal.getText()) - dTotal;
+                if(dTotal < 0.1){
+                    dTotal = 0;
+                    total = dTotal;
+                    
+                }else{
+                    total = dTotal;
+                }
                 total = dTotal;
                 lblRIVA.setText(String.valueOf(dIVA));
                 lblRTotal.setText(String.valueOf(dTotal));
