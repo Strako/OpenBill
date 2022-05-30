@@ -2,6 +2,7 @@ package proyecto_final;
 
 import proyecto_final.InicioSesion;
 import java.awt.EventQueue;
+import proyecto_final.InicioSesion;
 
 public class Principal {
     	public static void main(String[] args) {

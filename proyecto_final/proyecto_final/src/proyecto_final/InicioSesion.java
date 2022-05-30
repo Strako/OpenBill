@@ -50,7 +50,7 @@ public class InicioSesion extends JFrame implements ActionListener {
 	        //setVisible(true);
 	        setUndecorated(true);
 	       
-	    et1 = new JLabel("Usuario");
+	    et1 = new JLabel("/images/Usuario");
 	    et1.setBounds(92, 132, 100, 20);
 	    txt1 = new JTextField();
 	    txt1.setBounds(200, 132, 154, 20);
@@ -99,7 +99,7 @@ public class InicioSesion extends JFrame implements ActionListener {
 	     panel.add(lblNewLabel_1);
 	     
 	  
-	     BufferedImage bufferedImage = ImageIO.read(getClass().getResource( "usuario.jpg" ));
+	     BufferedImage bufferedImage = ImageIO.read(getClass().getResource( "/images/usuario.jpg" ));
 	        Image image = bufferedImage.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
 
 	        ImageIcon icon = new ImageIcon(image);

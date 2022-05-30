@@ -35,7 +35,7 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         btnClientes.setBounds(15, 281, 387, 265);
-        btnClientes.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Clients-icon.png")));
+        btnClientes.setIcon(new ImageIcon(Ventana.class.getResource("/images/Clients-icon.png")));
         
 
         btnClientes.setForeground(Color.WHITE);
@@ -54,7 +54,7 @@ public class Ventana extends javax.swing.JFrame {
         	}
         });
         btnProductos.setBounds(422, 281, 387, 265);
-        btnProductos.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Productos.png")));
+        btnProductos.setIcon(new ImageIcon(Ventana.class.getResource("/images/Productos.png")));
         
 
         btnProductos.addActionListener(new ActionListener() {
@@ -71,7 +71,7 @@ public class Ventana extends javax.swing.JFrame {
         btnProductos.setForeground(Color.WHITE);
         btnProductos.setBackground(Color.DARK_GRAY);
         btnProveedores.setBounds(15, 5, 387, 265);
-        btnProveedores.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Proveedores.png")));
+        btnProveedores.setIcon(new ImageIcon(Ventana.class.getResource("/images/Proveedores.png")));
         
 
         btnProveedores.addActionListener(new ActionListener() {
@@ -88,7 +88,7 @@ public class Ventana extends javax.swing.JFrame {
         btnProveedores.setForeground(Color.WHITE);
         btnProveedores.setBackground(Color.DARK_GRAY);
         btnFacturacion.setBounds(422, 5, 387, 265);
-        btnFacturacion.setIcon(new ImageIcon(Ventana.class.getResource("/proyecto_final/Facturacion.png")));
+        btnFacturacion.setIcon(new ImageIcon(Ventana.class.getResource("/images/Facturacion.png")));
         
 
         btnFacturacion.addActionListener(new ActionListener() {
