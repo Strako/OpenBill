@@ -50,7 +50,7 @@ public class InicioSesion extends JFrame implements ActionListener {
 	        //setVisible(true);
 	        setUndecorated(true);
 	       
-	    et1 = new JLabel("/images/Usuario");
+	    et1 = new JLabel("Usuario");
 	    et1.setBounds(92, 132, 100, 20);
 	    txt1 = new JTextField();
 	    txt1.setBounds(200, 132, 154, 20);

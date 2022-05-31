@@ -158,8 +158,7 @@ public class PROVEEDORES extends JFrame {
 		contentPane.add(BproveedoresBorrar_Datos);
 		
 
-		btnNewButton_3.setForeground(Color.WHITE);
-		btnNewButton_3.setBackground(Color.BLACK);
+		btnNewButton_3.setBackground(Color.WHITE);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int res =	JOptionPane.showConfirmDialog(null, "Realmente desea regresar?", "Confirmar regresar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);

@@ -148,8 +148,9 @@ public class PRODUCTOS  extends JFrame {
 		BproductosBORRAR_DATOS.setBounds(245, 117, 179, 81);
 		contentPane.add(BproductosBORRAR_DATOS);
 		
-		btnNewButton_3.setBackground(Color.BLACK);
-		btnNewButton_3.setForeground(Color.WHITE);
+		btnNewButton_3.setBackground(Color.WHITE);
+	
+                
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int res =	JOptionPane.showConfirmDialog(null, "Realmente desea regresar?", "Confirmar regresar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);

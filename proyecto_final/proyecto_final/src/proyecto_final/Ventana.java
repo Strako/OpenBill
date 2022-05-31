@@ -38,7 +38,7 @@ public class Ventana extends javax.swing.JFrame {
         btnClientes.setIcon(new ImageIcon(Ventana.class.getResource("/images/Clients-icon.png")));
         
 
-        btnClientes.setForeground(Color.WHITE);
+        btnClientes.setForeground(Color.BLACK);
         btnClientes.setBackground(Color.DARK_GRAY);
         btnClientes.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -68,7 +68,7 @@ public class Ventana extends javax.swing.JFrame {
 				}
         	}
         });
-        btnProductos.setForeground(Color.WHITE);
+        btnProductos.setForeground(Color.BLACK);
         btnProductos.setBackground(Color.DARK_GRAY);
         btnProveedores.setBounds(15, 5, 387, 265);
         btnProveedores.setIcon(new ImageIcon(Ventana.class.getResource("/images/Proveedores.png")));
@@ -85,7 +85,7 @@ public class Ventana extends javax.swing.JFrame {
 				}
         	}
         });
-        btnProveedores.setForeground(Color.WHITE);
+        btnProveedores.setForeground(Color.BLACK);
         btnProveedores.setBackground(Color.DARK_GRAY);
         btnFacturacion.setBounds(422, 5, 387, 265);
         btnFacturacion.setIcon(new ImageIcon(Ventana.class.getResource("/images/Facturacion.png")));
@@ -102,7 +102,7 @@ public class Ventana extends javax.swing.JFrame {
 				}
         	}
         });
-        btnFacturacion.setForeground(Color.WHITE);
+        btnFacturacion.setForeground(Color.BLACK);
         btnFacturacion.setBackground(Color.DARK_GRAY);
 
         jMenu1.setText("File");
