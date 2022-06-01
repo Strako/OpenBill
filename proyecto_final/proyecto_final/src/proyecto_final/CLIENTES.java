@@ -4,7 +4,6 @@ import Queries.CacheReader;
 import Queries.QClientesCampos;
 import Queries.QUsuario;
 import Queries.UpClientes;
-import Queries.comboBox;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 

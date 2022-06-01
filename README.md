@@ -15,5 +15,5 @@
        CREATE DATABASE openbill;
        USE openbill;
 
-       -Copy and paste the content of "openbill.sql" file into the terminal;
+       -Copy and paste the content of "DataBase Openbill.sql" file into the terminal;
        -Make sure to configure your databse client port to work with the port: 3606
