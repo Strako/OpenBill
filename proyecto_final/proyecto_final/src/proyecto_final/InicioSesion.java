@@ -32,7 +32,6 @@ public class InicioSesion extends JFrame implements ActionListener {
             String userText;
             String pwdText;
             String stm;
-//          String stm = "select `IDU` from `usuario` where `Usuario` =  'Zul' and `UClave` = '1234' ;";
             JPanel panel;
 	    JLabel et1, et2;
 	    JTextField txt1, txt2;

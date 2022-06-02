@@ -14,7 +14,7 @@ public class FindPrecio {
     public  float obetenerPrecio (int producto){
         float resultado;
         String stmPrecio = "select `PRPrecio` from `productos` where `IDPR` = "+ producto +";";
-        resultado = qPrecio.run(stmPrecio);
+        resultado = qPrecio.QueryUsuario(stmPrecio);
         
         return resultado;
     }        

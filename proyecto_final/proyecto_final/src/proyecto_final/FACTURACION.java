@@ -220,8 +220,8 @@ public class FACTURACION extends JFrame {
 
         BT_Borrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
-                
+                try{
+
                 dIVA = (float) ((float) model.getValueAt(table.getSelectedRow(), 2) * 0.16) * (int) model.getValueAt(table.getSelectedRow(), 1);
                 System.out.println(dIVA);
                 
@@ -246,6 +246,10 @@ public class FACTURACION extends JFrame {
                 }else{
                     total = dTotal;
                 }
+                }
+               catch(Exception ex){
+                   System.out.println(ex);
+               }
                 total = dTotal;
                 lblRIVA.setText(String.valueOf(dIVA));
                 lblRTotal.setText(String.valueOf(dTotal));
