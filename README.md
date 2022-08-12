@@ -9,15 +9,9 @@ importar OpenBill/proyecto_final
 
 Es importante anadir a el classpath la libreria "mysql-connector-java-8.0.28" 
 que se encuentra en OpenBill/mysql-connector-java-8.0.28.jar
-En el video "OB Tutorial, host gratis limite usuarios" adjunto 
-en "Tems EQUIPO 5" se especifican los detalles.
 
 NOTA ! ! ! !
-La aplicacion hace uso de un hosting mysql gratis el cual tiene 
-un limite de conexiones simultaneas (en el video "OB Tutorial, 
-host gratis limite usuarios" dentro de teams EQUIPO 5 hay mas detalles), 
-sin embargo el rograma funciona.
-
+Es necesario editar la URL de la base de datos en los scripts Queries
 USUARIO Y CONTRASENAS
 Usuario1: ZUL, Contrasena1: 1234
 Usuario2: Elchoco, Contrasena2: chocoman
