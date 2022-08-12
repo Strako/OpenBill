@@ -27,8 +27,14 @@ Usuario2: Elchoco, Contrasena2: chocoman
 
     -Contents
 
-       -"proyecto_final" folder contains the eclipse project with the source code
+       -"/proyecto_final" folder contains the eclipse project with the source code.
 
-       -"NBproyecto_final" folder contains the extra files to load the eclipse project in to netbeans
+       -"/NBproyecto_final" folder contains the extra files to load the eclipse project in to netbeans.
 
-       -"QProdCurrentUser.txt" is just an example query to test the database
+       -"/QProdCurrentUser.txt" is just an example query to test the database.
+       
+       -"/OpenBillDBdiag.PNG" or /OpenBillDBdiag.PDF "illustrates the relational model of the SQL Database.
+       
+       -"/OpenBillDBdiag" illustrates the relational model of the SQL Database.
+       
+       -"/ERS OpenBill.docx" describes the software requirements specification.
