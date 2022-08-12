@@ -12,6 +12,7 @@ que se encuentra en OpenBill/mysql-connector-java-8.0.28.jar
 
 NOTA ! ! ! !
 Es necesario editar la URL de la base de datos en los scripts Queries
+
 USUARIO Y CONTRASENAS
 Usuario1: ZUL, Contrasena1: 1234
 Usuario2: Elchoco, Contrasena2: chocoman
